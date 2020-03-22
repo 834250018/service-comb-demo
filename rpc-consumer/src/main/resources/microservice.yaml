@@ -1,0 +1,17 @@
+APPLICATION_ID: cn.ve # 应用程序编号,提供者要跟消费者相同
+service_description:
+  name: rpc-consumer # 应用程序的名称
+  version: 0.0.1
+  properties:
+    allowCrossApp: true # 允许跨域访问
+  environment: development
+servicecomb:
+  handler:
+    chain:
+      Provider: {} # 微服务治理调用链
+  highway:
+    address: 192.168.1.2:9091 # 这里默认是0.0.0.0,我电脑一直监听不了,不知道是不是配置了Hype-V的虚拟交换机的原因.暂时直接用IPv4
+  service:
+    registry:
+      address: http://127.0.0.1:30100 # cse地址
+      autodiscovery: false # 自动发现
