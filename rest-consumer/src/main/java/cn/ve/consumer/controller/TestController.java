@@ -18,7 +18,8 @@ public class TestController {
     private TestServiceImpl testService;
 
     @GetMapping("/test123")
-    public void test() {
+    public String test() {
         testService.invokeHello();
+        return "ok";
     }
 }

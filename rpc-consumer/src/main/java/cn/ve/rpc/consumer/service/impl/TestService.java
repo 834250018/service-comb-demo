@@ -15,7 +15,7 @@ public class TestService implements ITestProvider {
     // 从注册中心找到哪个应用程序下面的微服务
     // microserviceName=应用编号:应用名称
     // schemaId="",来自于服务提供者中的@RpcSchema中的值
-    @RpcReference(microserviceName = "cn.ve:rpc-provider", schemaId = "testSchema")
+    @RpcReference(microserviceName = "cn.ve:rpcProvider", schemaId = "testSchema")
     private ITestProvider testProvider;
 
     @Override

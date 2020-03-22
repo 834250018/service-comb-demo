@@ -1,0 +1,19 @@
+server:
+  port: 9005
+zuul:
+  routes:
+    restProvider:
+      serviceId: restProvider
+    restConsumer:
+      serviceId: restConsumer
+    rpcProvider:
+      serviceId: rpcProvider
+    rpcConsumer:
+      serviceId: rpcConsumer
+discoveryServer:
+  ribbon:
+    eureka:
+      enabled: false
+servicecomb:
+  tracing:
+    enabled: true

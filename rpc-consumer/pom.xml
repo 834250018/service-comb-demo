@@ -49,7 +49,7 @@
             <artifactId>provider-pojo</artifactId>
         </dependency>
 
-        <!-- web访问,也可以使用serviceComb的Rest替代(我猜) -->
+        <!-- web访问(我猜也可以使用serviceComb的Rest替代) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

@@ -1,6 +1,6 @@
 APPLICATION_ID: cn.ve # 应用程序编号,提供者要跟消费者相同
 service_description:
-  name: Provider # 应用程序的名称
+  name: restProvider # 应用程序的名称
   version: 0.0.1
   environment: development
 servicecomb:

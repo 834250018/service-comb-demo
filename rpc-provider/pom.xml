@@ -46,6 +46,22 @@
             <artifactId>provider-pojo</artifactId>
         </dependency>
 
+        <!-- 服务治理-限流 -->
+        <dependency>
+            <groupId>org.apache.servicecomb</groupId>
+            <artifactId>handler-flowcontrol-qps</artifactId>
+        </dependency>
+        <!-- 服务治理-熔断与降级 -->
+        <dependency>
+            <groupId>org.apache.servicecomb</groupId>
+            <artifactId>handler-bizkeeper</artifactId>
+        </dependency>
+        <!-- 微服务监控 -->
+        <dependency>
+            <groupId>org.apache.servicecomb</groupId>
+            <artifactId>handler-tracing-zipkin</artifactId>
+        </dependency>
+
     </dependencies>
 
 

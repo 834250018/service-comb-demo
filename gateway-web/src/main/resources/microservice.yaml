@@ -1,0 +1,10 @@
+APPLICATION_ID: cn.ve # 应用程序编号,提供者要跟消费者相同
+service_description:
+  name: gateway # 服务名称
+  version: 0.0.1
+  environment: development
+servicecomb:
+  service:
+    registry: # 注册中心
+      address: http://127.0.0.1:30100 # cse地址
+      autodiscovery: false # 自动发现

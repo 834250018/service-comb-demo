@@ -13,7 +13,7 @@ public class TestServiceImpl {
 
     public static final String CSE_PROTOCOL = "cse://";
 
-    public static final String serviceName = "Provider";
+    public static final String serviceName = "restProvider";
 
     // RestTemplate做用是可以快速请求微服务,由springMvc提供
     // RestTemplateBuilder 构建出serviceComb的restTemplate,注意引入的包路径

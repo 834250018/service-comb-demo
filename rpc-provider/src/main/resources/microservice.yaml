@@ -1,14 +1,27 @@
 APPLICATION_ID: cn.ve # 应用程序编号,提供者要跟消费者相同
 service_description:
-  name: rpc-provider # 应用程序的名称
+  name: rpcProvider # 应用程序的名称
   version: 0.0.1
   properties:
     allowCrossApp: true # 允许跨域访问
   environment: development
 servicecomb:
+  circuitBreaker: # 服务熔断
+    Provider: # 指定下游服务,哪个服务调不通就熔断
+      HelloServiceComb: # 需要熔断的服务名称
+        requestVolumeThreshold: 8 # 当在配置时间窗口内达到此数量的失败后，进行短路
+  fallbackpolicy: # 服务降级,配合熔断同时使用
+    provider:
+      policy: returnnull # 降级策略,返回null
+  flowcontrol: # 服务限流
+    Provider:
+      qps:
+        limit:
+          gateway: 1000 # 最大流量
   handler:
     chain:
-      Provider: {} # 微服务治理调用链
+      Provider: # 服务治理调用链 当前为限流,熔断,日志追踪
+        default: qps-flowcontrol-provider,bizkeeper-provider,tracing-provider
   highway:
     address: 192.168.1.2:9090 # 这里默认是0.0.0.0,我电脑一直监听不了,不知道是不是配置了Hype-V的虚拟交换机的原因.暂时直接用IPv4
   service:

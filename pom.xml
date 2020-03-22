@@ -14,6 +14,7 @@
         <module>rest-consumer</module>
         <module>rest-provider</module>
         <module>rest-provider-api</module>
+        <module>gateway-web</module>
     </modules>
     <packaging>pom</packaging>
 

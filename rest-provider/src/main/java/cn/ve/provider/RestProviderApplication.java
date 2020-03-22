@@ -1,4 +1,4 @@
-package cn.ve.consumer;
+package cn.ve.provider;
 
 import org.apache.servicecomb.springboot.starter.provider.EnableServiceComb;
 import org.springframework.boot.SpringApplication;
@@ -6,12 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author ve
- * @date 2020/3/21 19:43
+ * @date 2020/3/21 19:44
  */
+
 @SpringBootApplication
-@EnableServiceComb
-public class ConsumerApplication {
+@EnableServiceComb // 启用serviceComb
+public class RestProviderApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class, args);
+        SpringApplication.run(RestProviderApplication.class, args);
     }
 }
