@@ -84,5 +84,7 @@ servicecomb: # servicecomb相关配置
      * module*-provider-api // 可选,同上
      * common // 存放公共jar包
 
+#### 错误
+* 犯了一个很致命的错误,父功能中,我为了好看,把parent节点往下移动到跟dependencyManagement一起,然后各模块的依赖一直有些许问题
    
 
