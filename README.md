@@ -7,11 +7,11 @@
 
 ### 介绍
 
-本项目是基于ServiceComb微服务解决方案的一个入门教程,分支cse是serviceComb接入华为云平台的demo
+本项目是基于ServiceComb微服务解决方案的一个入门教程
 
 ### 起步
 
-1. 启动ServiceComb注册中心 Service Center (cse) [下载地址](https://servicecomb.apache.org/cn/release/)
+1. 启动ServiceComb注册中心 Service Center [下载地址](https://servicecomb.apache.org/cn/release/)
 3. 启动五个服务
    1. rest-provider
    2. rest--consumer
