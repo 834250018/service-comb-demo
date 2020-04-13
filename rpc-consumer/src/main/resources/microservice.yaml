@@ -10,7 +10,7 @@ servicecomb:
     chain:
       Provider: {} # 微服务治理调用链
   highway: # rpc通信模式
-    address: 192.168.1.2:9091 # 这里默认是0.0.0.0,我电脑一直监听不了,不知道是不是配置了Hype-V的虚拟交换机的原因.暂时直接用IPv4
+    address: 0.0.0.0:9091
   service:
     registry:
       address: http://127.0.0.1:30100 # cse地址

@@ -7,12 +7,11 @@
 
 ### 介绍
 
-本项目是基于ServiceComb微服务解决方案的一个入门教程
+本项目是基于ServiceComb微服务解决方案的一个入门教程,分支cse是serviceComb接入华为云平台的demo
 
 ### 起步
 
 1. 启动ServiceComb注册中心 Service Center (cse) [下载地址](https://servicecomb.apache.org/cn/release/)
-2. 修改所有的ip地址:全局搜索192.168.1.2并改成0.0.0.0
 3. 启动五个服务
    1. rest-provider
    2. rest--consumer
@@ -71,12 +70,8 @@ servicecomb: # servicecomb相关配置
 
 #### 架构调整
 
-1. 需要落地,合适的一种调用链应该是
-
    `网关->rest服务->rpc服务`
    
-   当然更要因地制宜
-
    结构为
 
    * 项目父框架 // 提供基础依赖
@@ -85,8 +80,6 @@ servicecomb: # servicecomb相关配置
      * rest-web2 // 可选,比如web1是给前台调用的,web2可以给后台调用
      * module1-provider // 提供rpc服务给rest-web使用
      * module1-provider-api // 提供rpc服务的接口给rest-web使用
-     * module2-provider // 可选,同上
-     * module2-provider-api // 可选,同上
      * module*-provider // 可选,同上
      * module*-provider-api // 可选,同上
      * common // 存放公共jar包
