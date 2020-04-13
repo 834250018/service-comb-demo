@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <parent>
-        <artifactId>service-comb-demo</artifactId>
-        <groupId>cn.ve</groupId>
-        <version>1.0-SNAPSHOT</version>
+            <groupId>cn.ve</groupId>
+            <artifactId>service-comb-demo</artifactId>
+            <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>rest-consumer</artifactId>
+    <properties>
+        <!-- 需要限制此版本 -->
+        <javax-validation.version>2.0.1.Final</javax-validation.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -18,49 +22,61 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-
-        <!-- hibernate校验 -->
+        <!-- 接入华为云Paas依赖 -->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
+            <groupId>com.huawei.paas.cse</groupId>
+            <artifactId>cse-solution-service-engine</artifactId>
         </dependency>
-
-        <!-- spring-boot-starter -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
         <!-- service-comb服务提供者 -->
         <dependency>
             <groupId>org.apache.servicecomb</groupId>
             <artifactId>spring-boot-starter-provider</artifactId>
         </dependency>
 
-        <!-- spring-boot-start-test测试 -->
-        <!--<dependency>
+        <!-- spring-boot-starter -->
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j</artifactId>
+            <version>1.3.8.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- hibernate校验 -->
+       <!-- <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
         </dependency>-->
 
 
-
         <!-- 服务治理-限流 -->
-        <dependency>
+       <!-- <dependency>
             <groupId>org.apache.servicecomb</groupId>
             <artifactId>handler-flowcontrol-qps</artifactId>
         </dependency>
-        <!-- 服务治理-熔断与降级 -->
+        &lt;!&ndash; 服务治理-熔断与降级 &ndash;&gt;
         <dependency>
             <groupId>org.apache.servicecomb</groupId>
             <artifactId>handler-bizkeeper</artifactId>
         </dependency>
-        <!-- 微服务监控 -->
+        &lt;!&ndash; 微服务监控 &ndash;&gt;
         <dependency>
             <groupId>org.apache.servicecomb</groupId>
             <artifactId>handler-tracing-zipkin</artifactId>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 </project>
