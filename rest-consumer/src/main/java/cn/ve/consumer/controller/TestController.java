@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/test")
 public class TestController {
 
-//    @Autowired
-//    private TestServiceImpl testService;
+    @Autowired
+    private TestServiceImpl testService;
 
     @GetMapping("/test123")
     public String test() {
-//        testService.invokeHello();
+        testService.invokeHello();
         return "ok";
     }
 }

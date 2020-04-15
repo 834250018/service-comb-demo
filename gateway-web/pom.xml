@@ -5,11 +5,18 @@
     <parent>
         <artifactId>service-comb-demo</artifactId>
         <groupId>cn.ve</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>gateway-web</artifactId>
+
+
+    <properties>
+        <!-- 需要限制此版本 -->
+        <javax-validation.version>2.0.1.Final</javax-validation.version>
+    </properties>
+
 
     <dependencies>
 
@@ -21,7 +28,7 @@
         <dependency>
             <groupId>cn.ve</groupId>
             <artifactId>service-comb-base-dep</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

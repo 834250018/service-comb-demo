@@ -9,19 +9,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.0.RELEASE</version>
+        <version>1.5.9.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.ve</groupId>
     <artifactId>service-comb-demo</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <cse.version>2.3.69</cse.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cse.version>2.3.69</cse.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -41,14 +39,14 @@
     </dependencyManagement>
 
     <modules>
-        <module>rpc-provider</module>
-        <module>rpc-provider-api</module>
-        <module>rpc-consumer</module>
-        <module>rest-consumer</module>
-        <module>rest-provider</module>
-        <module>rest-provider-api</module>
-        <module>gateway-web</module>
         <module>service-comb-base-dep</module>
+        <module>rpc-provider-api</module>
+        <module>rpc-provider</module>
+        <module>rpc-consumer</module>
+        <module>rest-provider-api</module>
+        <module>rest-provider</module>
+        <module>rest-consumer</module>
+        <module>gateway-web</module>
     </modules>
     <packaging>pom</packaging>
 
