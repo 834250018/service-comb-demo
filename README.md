@@ -1,6 +1,13 @@
 # service-comb-dermo 接入cse
 
 ### 调整步骤
+1. 网关(需设置请求头Authorization)
+    * 请求rpc`http://localhost:9005/api/rpcConsumer/rpc`
+    * 请求rest`http://localhost:9005/api/restConsumer/test/test123`
+2. 直接请求rpc `http://localhost:8088/rpc`
+2. 直接请求rest `http://localhost:8080/test/test123`
+
+### 调整步骤
 1. 父工程依赖管理调整成
     ```
     <dependencyManagement>
