@@ -19,22 +19,10 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!-- hibernate校验 -->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-        </dependency>
-
-        <!-- spring-boot-starter -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <!-- service-comb服务提供者 -->
-        <dependency>
-            <groupId>org.apache.servicecomb</groupId>
-            <artifactId>spring-boot-starter-provider</artifactId>
+            <groupId>cn.ve</groupId>
+            <artifactId>service-comb-base-dep</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
 

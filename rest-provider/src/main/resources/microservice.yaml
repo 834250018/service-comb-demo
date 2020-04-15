@@ -1,15 +1,37 @@
-APPLICATION_ID: cn.ve # 应用程序编号,提供者要跟消费者相同
+APPLICATION_ID: cn.ve
 service_description:
   name: restProvider # 应用程序的名称
   version: 0.0.1
-  environment: development
-servicecomb:
-  handler:
-    chain:
-      Provider: {} # 微服务治理调用链
-  rest: # rest通信
-    address: 0.0.0.0:9080
+  properties:
+    allowCrossApp: false
+cse:
   service:
     registry:
-      address: http://127.0.0.1:30100 # cse地址
-      autodiscovery: false # 自动发现
+      address: https://cse.cn-south-1.myhuaweicloud.com
+      instance:
+        watch: false
+  config:
+    client:
+      serverUri: https://cse.cn-south-1.myhuaweicloud.com
+      refreshMode: 1
+      refresh_interval: 5000
+  monitor:
+    client:
+      serverUri: https://cse.cn-south-1.myhuaweicloud.com
+  rest:
+    address: 0.0.0.0:9080
+  #When a local project is deployed as a container outside a cluster, you need to delete all monitor and credentials comments and configure the AK/SK.
+  credentials:
+    accessKey:
+    secretKey:
+    akskCustomCipher: default
+    project: cn-south-1
+  handler: # 配置handler,启用cse微服务治理
+    chain:
+      Provider:
+        default: bizkeeper-provider,qps-flowcontrol-provider
+      Consumer:
+        default: bizkeeper-consumer,loadbalance,qps-flowcontrol-consumer # fault-injection-consumer 错误注入
+      # bizkeeper隔离,熔断,容错
+      # tracing调用链跟踪
+      # tcc 提供tcc事务开发管理能力

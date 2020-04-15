@@ -21,7 +21,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <cse.version>2.3.69</cse.version>
-        <javax-validation.version>2.0.1.Final</javax-validation.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cse.version>2.3.69</cse.version>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -49,6 +48,7 @@
         <module>rest-provider</module>
         <module>rest-provider-api</module>
         <module>gateway-web</module>
+        <module>service-comb-base-dep</module>
     </modules>
     <packaging>pom</packaging>
 

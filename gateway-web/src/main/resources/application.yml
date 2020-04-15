@@ -1,19 +1,59 @@
+spring:
+  application:
+    name: gateway-web
 server:
   port: 9005
-zuul:
-  routes:
-    restProvider:
-      serviceId: restProvider
-    restConsumer:
-      serviceId: restConsumer
-    rpcProvider:
-      serviceId: rpcProvider
-    rpcConsumer:
-      serviceId: rpcConsumer
-discoveryServer:
-  ribbon:
-    eureka:
-      enabled: false
-servicecomb:
-  tracing:
-    enabled: true
+APPLICATION_ID: cn.ve
+service_description:
+  name: ${spring.application.name} # 应用程序的名称
+  version: 0.0.1
+  properties:
+    allowCrossApp: false
+cse:
+  service:
+    registry:
+      address: https://cse.cn-south-1.myhuaweicloud.com
+      instance:
+        watch: false
+  config:
+    client:
+      serverUri: https://cse.cn-south-1.myhuaweicloud.com
+      refreshMode: 1
+      refresh_interval: 5000
+  monitor:
+    client:
+      serverUri: https://cse.cn-south-1.myhuaweicloud.com
+  rest:
+    address: 0.0.0.0:${server.port}
+  #When a local project is deployed as a container outside a cluster, you need to delete all monitor and credentials comments and configure the AK/SK.
+  credentials:
+    accessKey:
+    secretKey:
+    akskCustomCipher: default
+    project: cn-south-1
+  http:
+    dispatcher:
+      edge:
+        default: # /api/微服务名[/版本号]/*
+          enabled: true
+          prefix: api # 默认路由前缀
+          withVersion: false # 是否跟随版本号
+          prefixSegmentCount: 2 # 匹配段数量
+        url:
+          enabled: true
+          mappings:
+            restPro: # 当前规则名称,可任意
+              prefixSegmentCount: 2
+              path: "/test/aabb/.*" # 当前缀未/test/aabb,转发到rest-provider
+              withVersion: false
+              microserviceName: rest-provider
+#              versionRule: 1.0.0-2.0.0 # 发布版本,用于灰度发布
+  handler: # 配置handler,启用cse微服务治理
+    chain:
+      Provider:
+        default: bizkeeper-provider,qps-flowcontrol-provider
+      Consumer:
+        default: bizkeeper-consumer,loadbalance,qps-flowcontrol-consumer # fault-injection-consumer 错误注入
+      # bizkeeper隔离,熔断,容错
+      # tracing调用链跟踪
+      # tcc 提供tcc事务开发管理能力

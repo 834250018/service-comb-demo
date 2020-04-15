@@ -1,37 +1,4 @@
-#APPLICATION_ID: cn.ve # 应用程序编号,提供者要跟消费者相同
-#service_description:
-#  name: restConsumer # 应用程序的名称
-#  version: 0.0.1
-#  environment: development
-#servicecomb:
-#  circuitBreaker: # 服务熔断
-#    Provider: # 指定下游服务,哪个服务调不通就熔断
-#      restProvider: # 需要熔断的服务名称
-#        requestVolumeThreshold: 1 # 当在配置时间窗口内达到此数量的失败后，进行短路
-#  fallbackpolicy: # 服务降级,配合熔断同时使用
-#    provider:
-#      policy: returnnull # 降级策略,返回null
-#  flowcontrol: # 服务限流
-#    Provider:
-#      qps:
-#        limit:
-#          gateway: 1000 # 最大流量
-#  handler:
-#    chain:
-#      Provider: # 服务治理调用链 当前为限流,熔断,日志追踪
-#        default: qps-flowcontrol-provider,bizkeeper-provider,tracing-provider
-##  handler:
-##    chain:
-##      Provider: {} # 微服务治理调用链
-#  rest: # rest通信
-#    address: 0.0.0.0:9081
-#  service:
-#    registry:
-#      address: http://127.0.0.1:30100 # cse地址
-#      autodiscovery: false # 自动发现
-
-
-APPLICATION_ID: springmvc
+APPLICATION_ID: cn.ve
 service_description:
   name: restConsumer # 应用程序的名称
   version: 0.0.1
@@ -55,7 +22,16 @@ cse:
     address: 0.0.0.0:8080
   #When a local project is deployed as a container outside a cluster, you need to delete all monitor and credentials comments and configure the AK/SK.
   credentials:
-    accessKey: 4ETO2NGJRI5GTKEZ9YA7
-    secretKey: Hr50WeN8CoClRjLkE2Co0KTy7bl70Rb0Hp2Ndzpj
+    accessKey:
+    secretKey:
     akskCustomCipher: default
     project: cn-south-1
+  handler: # 配置handler,启用cse微服务治理
+    chain:
+      Provider:
+        default: bizkeeper-provider,qps-flowcontrol-provider
+      Consumer:
+        default: bizkeeper-consumer,loadbalance,qps-flowcontrol-consumer # fault-injection-consumer 错误注入
+      # bizkeeper隔离,熔断,容错
+      # tracing调用链跟踪
+      # tcc 提供tcc事务开发管理能力
